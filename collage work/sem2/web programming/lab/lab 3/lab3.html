@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bank account form</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        h2{
+            padding: 0px;
+            margin: 0px;
+        }
+        .div1{
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;    
+        }
+        .div11{
+            padding: 10px;
+            margin: 0px;
+            border: 2px solid black; 
+            width:60%;
+            height: fit-content;       
+        }
+        .div12{
+            padding: 10px;
+            margin: 0px;
+            
+            width: fit-content;
+            height: fit-content;
+        }
+        .textarea{
+            margin: 0px;
+            padding:0px;
+        }
+        p{
+          padding: 0%;
+          margin: 0px;
+         }
+         .td1{
+            border-color: black;
+         }
+    </style>
+</head>
+<body>
+    <h1 class="head">SAVING BANK ACCOUNT OPEANING FORM</h1>
+<div  class="maindiv">
+    <div class="div1">
+        <div class="div11">
+            <h2>for bank use only</h2>
+            <p>name & code of branch:<input type="text" class="textarea"></p>
+            <p>cust ID:<input type="text" class="textarea"></p>
+            <p>A/C No:<input type="text" class="textarea"></p>
+        </div>
+        <div class="div12">
+            <p>date:<input type="date" class="textarea"> </p>
+            <p>time:<input type="time" class="textarea"></p>
+        </div>
+    </div>
+    <div class="div2">
+       <table>
+       <tr>
+        <td class="td1">1</td>
+        <td class="td1">name in full(mr/mrs)</td>
+        <td class="td1" colspan="3"></td>
+        <td></td>
+       </tr>
+  
+        <tr>
+            <td class="td1">2</td>
+            <td class="td1">Father/ Husband/ Guardian Name</td>
+            <td class="td1" colspan="3"></td>
+            
+            <td ></td>
+        </tr>
+        <tr>
+            <td class="td1">3</td>
+            <td class="td1">Gender</td>
+            <td class="td1"><input name="gender" type="radio">male <input name="gender" type="radio">female</td>
+            <td class="td1">Date of birth</td>
+            <td class="td1"><input type="date"></td>
+            <td ></td>
+        </tr>
+        <tr>
+            <td class="td1">4</td>
+            <td class="td1">Occupation</td>
+            <td class="td1"><input type="text"></td>
+            <td class="td1">catogary</td>
+            <td ><select name="" id="">
+                <option value="">general</option>
+                <option value="">obc</option>
+                <option value="">sc/st</option>
+            </select></td>
+            <td class="td1"></td>
+        </tr>
+            <tr>
+                <td class="td1">5</td>
+                <td class="td1">Marital Status</td>
+                <td class="td1" colspan="2"><input name="ms" type="radio">Marrid<input name="ms" type="radio">Unmarrid <input name="ms" type="radio">Widowed</td>
+                <td class="td1">signature</td>
+                <td ></td>
+            </tr>
+    </table>
+
+
+
+    </div>
+</div>
+</body>
+</html>
