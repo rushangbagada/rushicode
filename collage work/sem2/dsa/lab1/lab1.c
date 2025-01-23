@@ -30,29 +30,13 @@
 // display them. (Assume 10 positive and 10 negative numbers are provided in
 // MainArray).
 
+
 #include <stdio.h>
 
-int take_input(int subarray1,int size)
+int main()  
 {
-    if(size > 10)
-    {
-        printf("size should be less than 10");
-        return;
-    }
-    for (int i = 0; i < size; i++)
-    {
-        printf("enter element of subarry1: ");
-        scanf("%d", &subarray1[i]);
-    }
-    
-}
 
-int main()
-{
-    int subarray1[10], subarray2[10], mainarray[20];
-    int size;
-    printf("enter size of subarry1: ");
-    scanf("%d", &size);
-    int size1 = take_input(subarray1,size);
+
+        
     return 0;
 }
