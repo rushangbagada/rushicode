@@ -11,10 +11,10 @@ int main()
 
     // Push elements onto the stack
     stack_push(&stack, 10);
+    stack_peek(&stack, &value);
     stack_push(&stack, 20);
+    stack_peek(&stack, &value);
     stack_push(&stack, 30);
-
-    // Peek the top element
     stack_peek(&stack, &value);
     printf("Top element: %d\n", value);
     return 0;

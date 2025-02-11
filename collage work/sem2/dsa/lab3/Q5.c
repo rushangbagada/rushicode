@@ -1,70 +1,109 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include <stdbool.h>
 #include <string.h>
 
-// Function to check if a string is a valid positive integer
-int isValidNumber(char *str)
+bool is_alpha(char ch)
 {
-    for (int i = 0; str[i] != '\0'; i++)
+    return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
+}
+
+bool is_digit(char ch)
+{
+    return ch >= '0' && ch <= '9';
+}
+
+bool is_alnum_or_underscore(char ch)
+{
+    return is_alpha(ch) || is_digit(ch) || ch == '_';
+}
+
+bool is_valid_multidimensional_array(const char *declaration)
+{
+    const char *valid_types[] = {"int", "float", "double", "char", "long"};
+    int num_valid_types = sizeof(valid_types) / sizeof(valid_types[0]);
+
+    char buffer[256];
+    strncpy(buffer, declaration, sizeof(buffer) - 1);
+    buffer[sizeof(buffer) - 1] = '\0';
+
+    size_t len = strlen(buffer);
+    if (len < 2 || buffer[len - 1] != ';')
     {
-        if (!isdigit(str[i]))
+        return false;
+    }
+
+    buffer[len - 1] = '\0';
+
+    char *token = strtok(buffer, " ");
+
+    bool valid_type = false;
+    for (int i = 0; i < num_valid_types; ++i)
+    {
+        if (strcmp(token, valid_types[i]) == 0)
         {
-            return 0; // Not a number
+            valid_type = true;
+            break;
         }
     }
-    return 1; // Valid number
+    if (!valid_type)
+    {
+        return false;
+    }
+
+    token = strtok(NULL, "[");
+    if (token == NULL || !is_alpha(token[0]))
+    {
+        return false;
+    }
+    for (int i = 1; token[i] != '\0'; ++i)
+    {
+        if (!is_alnum_or_underscore(token[i]))
+        {
+            return false;
+        }
+    }
+
+    while ((token = strtok(NULL, "]")) != NULL)
+    {
+        if (token[0] != '[')
+        {
+            return false;
+        }
+        for (int i = 1; token[i] != '\0'; ++i)
+        {
+            if (!is_digit(token[i]))
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 int main()
 {
-    char input[100];
-    int dimensions[10]; // Array to hold dimensions (max 10 dimensions)
-    int numDimensions = 0;
 
-    printf("Enter the dimensions of the multi-dimensional array (comma-separated): ");
-    scanf("%s", input);
-
-    // Split the input string by commas
-    char *token = strtok(input, ",");
-
-    while (token != NULL) {
-        if (isValidNumber(token))
+    char user_input[256];
+    printf("Enter a multi-dimensional array declaration: ");
+    if (fgets(user_input, sizeof(user_input), stdin) != NULL)
+    {
+        // Remove trailing newline
+        size_t len = strlen(user_input);
+        if (len > 0 && user_input[len - 1] == '\n')
         {
-            int value = atoi(token);
-            if (value > 0)
-            {
-                dimensions[numDimensions++] = value;
-            }
-            else
-            {
-                printf("Error: Dimensions must be positive integers.\n");
-                return 1;
-            }
+            user_input[len - 1] = '\0';
+        }
+
+        if (is_valid_multidimensional_array(user_input))
+        {
+            printf("Valid array declaration.\n");
         }
         else
         {
-            printf("Error: Invalid input '%s'. Dimensions must be integers.\n", token);
-            return 1;
-        }
-        token = strtok(NULL, ",");
-    }
-
-    if (numDimensions == 0) {
-        printf("Error: No dimensions provided.\n");
-        return 1;
-    }
-
-    // Display the valid dimensions
-    printf("The array declaration is valid with dimensions: ");
-    for (int i = 0; i < numDimensions; i++) {
-        printf("%d", dimensions[i]);
-        if (i < numDimensions - 1)
-        {
-            printf(" x ");
+            printf("Invalid array declaration.\n");
         }
     }
-   
 
     return 0;
 }

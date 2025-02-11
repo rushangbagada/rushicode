@@ -3,22 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 10
+#define MAX 3
 
 typedef struct
 {
     int arr[MAX];
-    int top1; 
-    int top2; 
+    int top1;
+    int top2;
 } TwoStacks;
-
 
 void initStacks(TwoStacks *stacks)
 {
-    stacks->top1 = -1;  
-    stacks->top2 = MAX; 
+    stacks->top1 = -1;
+    stacks->top2 = MAX;
 }
-
 
 void push1(TwoStacks *stacks, int value)
 {
@@ -30,7 +28,6 @@ void push1(TwoStacks *stacks, int value)
     stacks->arr[++stacks->top1] = value;
 }
 
-
 void push2(TwoStacks *stacks, int value)
 {
     if (stacks->top2 - 1 == stacks->top1)
@@ -41,17 +38,15 @@ void push2(TwoStacks *stacks, int value)
     stacks->arr[--stacks->top2] = value;
 }
 
-
 int pop1(TwoStacks *stacks)
 {
     if (stacks->top1 == -1)
     {
         printf("Stack 1 underflow\n");
-        return -1; 
+        return -1;
     }
     return stacks->arr[stacks->top1--];
 }
-
 
 int pop2(TwoStacks *stacks)
 {
@@ -67,22 +62,20 @@ int peek1(TwoStacks *stacks)
     if (stacks->top1 == -1)
     {
         printf("Stack 1 is empty\n");
-        return -1; 
+        return -1;
     }
     return stacks->arr[stacks->top1];
 }
-
 
 int peek2(TwoStacks *stacks)
 {
     if (stacks->top2 == MAX)
     {
         printf("Stack 2 is empty\n");
-        return -1; 
+        return -1;
     }
     return stacks->arr[stacks->top2];
 }
-
 
 int isEmpty1(TwoStacks *stacks)
 {
