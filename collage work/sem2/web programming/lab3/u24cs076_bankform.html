@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANK FORM</title>
+    <style>
+
+        body{
+            text-align: center;
+        }
+
+        .open{
+            display:inline-flex;
+            flex-direction:row-reverse;
+        
+            
+            
+        }
+
+        .two{
+            border: 3px solid black;
+
+        }
+
+        .help{
+            display: flex;
+            border: 2px solid black;
+            width:600px;
+        }
+
+        
+
+        td{
+            border: 2px solid black;
+            
+        }
+
+        table{
+            width:100%;
+            align-self: center;
+            padding:10px;
+            border:2px;
+            
+        }
+
+        legend{
+            text-align:left;
+        }
+
+        .last{
+            display:flex;
+            flex-direction:row;
+            align-content: space-around;
+        }
+
+        fieldset{
+            width: 100%;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <h1 style="text-align:center">SAVING BANK ACCOUNT OPENING FORM</h1>
+    <h3 style="text-align:center">(for BASIC/SMALL SB A/c)</h3>
+
+    <hr>
+
+    
+  
+
+        <div class="help">
+            <fieldset class="width:fit;">
+            <legend><h5>For Bank Use Only</h5></legend>
+               <div class="div1">
+                <p style="padding:5px;text-align:left;">Name and Code of the Branch</p>
+                <p><label style="padding:10px;">Cust ID</label><input type="text"></p><br>
+                <p><label style="padding:10px;">A/C No.</label><input type="text"></p>
+               </div>
+               <div class="div2" >
+                <input type="date" name="" id="">
+                <input type="time" name="" id="">
+               </div>
+            </fieldset>
+        </div>
+</div>
+
+    <div>
+        <fieldset>
+            <legend><h5>Personal Details</h5></legend>
+        <table class="two" style="padding:5px;
+            border:2px solid black;" >
+            <tr>
+                <td>1</td>
+                <td>Name in Full(Mr/Ms)</td>
+                <td colspan="5"><input type="text"></td>
+                <td colspan="2" rowspan="4">Image</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Father/Husband/Guardian Name</td>
+                <td colspan="5"><input type="text"></td>
+                
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Gender</td>
+                <td><input name="gender" type="radio"><label>Male</label><input name="gender" type="radio"><label>Female</label></td>
+                <td>Date of Birth</td>
+                <td colspan="3"><input type="date"></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Occupation</td>
+                <td><input type="text"></td>
+                <td>Category</td>
+                <td colspan="3"><select name="select"><option>GENERAL</option><option>SC</option><option>OBC</option><option>PWD</option></select></td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Marital Status</td>
+                <td colspan="4"><input type="radio"><label>Married</label><input type="radio"><label>Unmarried</label><input type="radio"><label>Widowed</label></td>
+                <td colspan="1" style="text-align:right;">Signature</td>
+                <td></td>
+                
+            </tr>
+        </table>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend><h5>Contact Details</h5></legend>
+            <table class="secone" style="text-align:center;padding:5px;
+            border:2px solid black;">
+                <tr>
+                    <td>Mobile No.(1)</td>
+                    <td colspan="3"><input type="tel"></td>
+                    <td>Mobile No.(2)</td>
+                    <td><input type="tel"></td>
+                    <td>Telephone/Landline</td>
+                    <td><input type="tel"></td>
+                </tr>
+
+                <tr>
+                    <td>Personal Email</td>
+                    <td colspan="4"><input type="email"></td>
+                    <td>Professional Email</td>
+                    <td colspan="4"><input type="email"></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2">Current Address</td>
+                    <td rowspan="2" colspan="3"><textarea></textarea></td>
+                    <td rowspan="1">Village/City</td>
+                    <td rowspan="1"><input type="text"></td>
+                    <td rowspan="1">District</td>
+                    <td><input type="text"></td>
+                </tr>
+
+                <tr>
+                    <td>State</td>
+                    <td><select value="select"><option>Gujarat</option><option>Others</option></select></td>
+                    <td>Pincode</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+
+            <table style="margin-top:20px;padding:5px;
+            border:2px solid black;">
+                <tr>
+                    <td rowspan="2" colspan="4">Permanent Address</td>
+                    <td rowspan="2" colspan="4"><textarea></textarea></td>
+                    <td>Village/City</td>
+                    <td><input type="text"></td>
+                    <td>District</td>
+                    <td><input type="text"></td>
+                </tr>
+
+                <tr>
+                    <td>State</td>
+                    <td><select value="select"><option>Gujarat</option><option>Others</option></select></td>
+                    <td>Pincode</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend><h5>Documents</h5></legend>
+        <table class="third" style="padding:5px;
+        border:2px solid black;">
+            <tr style="text-align:center">
+                <td rowspan="2">Aadhaar Card</td>
+                <td rowspan="2"><input type="text" placeholder="Aadhaar Number"></td>
+                <td rowspan="2" colspan="2"><button>Choose file</button><label>No file chosen</label></td>
+                <td rowspan="2">Pan Card</td>
+                <td rowspan="2"><input type="text" placeholder="Pan Number"></td>
+                <td rowspan="2" colspan="2"><button>Choose file</button><label>No file chosen</label></td>                
+            </tr>
+
+            <tr></tr>
+
+            <tr style="text-align:center">
+                <td rowspan="2">Electricity Bill</td>
+                <td rowspan="2" colspan="3"><button>Choose file</button><label>No file chosen</label></td>
+                <td rowspan="2">Gas Bill</td>
+                <td rowspan="2" colspan="3"><button>Choose file</button><label>No file chosen</label></td>                
+            </tr>
+
+            <tr></tr>
+            
+        </table>
+        </fieldset>
+    </div>
+
+
+    <hr>
+    <p>Please open a Savings Bank account in the name of Mr./Ms.____________________</p><br>
+    <p>The Saving Bank rules and regulations including those relating to Small Account have been explained to me and I agree to abide bt the same.An additional photograph is attached.</p><br>
+    <div class="last">
+        <div style="justify-content:left; align-items:center;margin-left:0;"><label>Date: <input type="date"></label></div>
+        <div style="justify-content:center;align-items:center;margin-left:500px;"><label>Place: <input type="text"></label></div>
+        <div style="justify-content:right;align-items:center;margin-left:500px;"><label>Signature:</label></div>
+    </div>
+    
+    </form>
+</body>
+</html>

@@ -9,6 +9,13 @@ public:
         next=NULL;
     }
 };
+void display(node *head){
+    node *temp = head;
+    while(temp!=NULL){
+        cout<<temp->val<<" ";
+        temp=temp->next;
+    }
+}
 
 int main(){
     node* a = new node(10);
@@ -20,10 +27,10 @@ int main(){
     b->next=c;
     c->next=d;
 
-    node *temp = a;
-    while(temp!=NULL){
-        cout<<temp->val<<" ";
-        temp=temp->next;
-    }
+    // node *temp = a;
+    // while(temp!=NULL){
+    //     cout<<temp->val<<" ";
+    //     temp=temp->next;
+    // }
     return 0;
 }

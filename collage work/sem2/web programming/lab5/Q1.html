@@ -4,138 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>responsive</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-
-        }
-
-        body {
-            height: 100vh;
-            background-image: linear-gradient(to bottom, rgb(1, 74, 1), rgb(25, 25, 251), rgb(1, 74, 1));
-        }
-
-        .div1 {
-
-            width: 100%;
-            height: fit-content;
-
-        }
-
-        .nav1 {
-            position: fixed;
-            background: #000;
-            
-            width: 100%;
-            height: fit-content;
-            border-bottom-right-radius: 20px;
-            border-bottom-left-radius: 20px;
-
-        }
-
-        .nav1 ul {
-
-            width: 100%;
-            height: 100px;
-            display: flex;
-           
-            justify-content: end;
-            align-items: center;
-        }
-
-        .li1 {
-            list-style-type: none;
-            margin: 10px;
-            padding: 10px 25px;
-            background-color: #4fa6e4;
-            border-radius: 10px;
-            color: white;
-            margin-right: 20px;
-        }
-
-        .li1:hover {
-
-            background-color: #1f1f1f;
-            color: #4fa6e4;
-            transition: 0.3s;
-            transform: scale(120%);
-
-        }
-        
-        .img {
-            position: fixed;
-            top: 25px;
-            left: 30px;
-            width: 50px;
-            border-radius: 20%;
-        }
-        .img:hover{
-            transition: 1s;
-            transform: scale(120%);
-
-        }
-
-        @media screen and (max-width: 700px) {
-
-            .nav1 ul {
-                background: #000;
-                height: fit-content;
-                width: 100%;
-                display: block;
-                border-bottom-right-radius: 20px;
-                border-bottom-left-radius: 20px;
-                padding-bottom: 20PX;
-                padding-top: 10px;
-            }
-            img{
-                display: none;
-            }
-
-            ul li {
-                text-align: end;
-                font-size: 20px;
-
-            }
-            
-            ul li:hover {
-                
-                padding-right: 10px;
-               
-            }
-            .li1:hover{
-                transition: 0.5s;
-                transform: none;
-            }
-            
-        }
-    </style>
+    <title>Responsive Professional Website</title>
+    <link rel="stylesheet" href="1.css">
 </head>
 
 <body>
-    <div class="div1">
-      
-        <nav class="nav1">
-            <img class="img"
-                src="https://img.freepik.com/premium-vector/letter-r-logo-design-logo-template-creative-r-logo-vector-symbol_487414-3674.jpg?w=900"
-                alt="">
-            <ul>
-                <li class="li1">home</li>
-                <li class="li1">our team</li>
-                <li class="li1">our work</li>
-                <li class="li1">contact</li>
-                <li class="li1">about</li>
-            </ul>
-        </nav>
+    <nav class="nav1">
+        <ul>
+            <li>Home</li>
+            <li>Our Team</li>
+            <li>Our Work</li>
+            <li>Contact</li>
+            <li>About</li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="cards">
+            <div class="container">
+                <div id="img1" class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div  class="container">
+                <div class="banner-image img2"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div  class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div  class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div  class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="banner-image"></div>
+                <h1>Super Cars</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="button-wrapper">
+                    <button class="btn outline">DETAILS</button>
+                    <button class="btn fill">BUY NOW</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <footer>
-           <div>
-
-           </div>
-
-    </footer>
 </body>
-
 
 </html>
