@@ -1,0 +1,87 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    
+}
+
+h1{
+    font-size: 50px;
+    color: white;
+}
+h4{
+font-size: 20px;
+color: white;
+}
+.div1{
+    background-color: #4fa6e4;
+    padding-left: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.div2{
+   display: flex;
+}    
+.div21{
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    margin-right: 5px;
+}
+.div22{
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 5px;
+ }
+button{
+    text-align: start;
+    background-color:#938d8d;
+    width: 100%;
+    height: 25px;
+    margin: 5px;
+    border-radius: 7px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+
+}
+p{
+    text-align: justify;
+    margin-bottom: 20px;
+}
+.div223{
+    border-radius: 10px;
+    background-color: rgb(234, 129, 234);
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+}
+
+/* Styles for the first column in the flex container */
+.div21 {
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    margin-right: 5px;
+
+/* Styles for the second column in the flex container */
+.div22 {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 5px;
+
+/* Button styling */
+button {
+    text-align: start;
+    background-color: #938d8d;
+    width: 100%;
+    height: 25px;
+    margin: 5px;
+    border-radius: 7px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+
+/* Paragraph text styling */
+p {

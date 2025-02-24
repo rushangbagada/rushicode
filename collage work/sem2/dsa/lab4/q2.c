@@ -95,6 +95,7 @@ void enqueue(Queue *q, int value)
 
 
 
+
 int dequeue(Queue *q)
 {
     if (isEmpty(&q->stack2))

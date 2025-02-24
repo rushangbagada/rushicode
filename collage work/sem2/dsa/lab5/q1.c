@@ -1,18 +1,16 @@
-// Reversing a Queue using another Queue.
-
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 100 
+#define MAX 100
 
-
+// Queue structure
 struct Queue
 {
     int items[MAX];
     int front, rear;
 };
 
-
+// Function to create a queue
 struct Queue *createQueue()
 {
     struct Queue *queue = (struct Queue *)malloc(sizeof(struct Queue));
@@ -21,19 +19,19 @@ struct Queue *createQueue()
     return queue;
 }
 
-
+// Function to check if the queue is empty
 int isEmpty(struct Queue *queue)
 {
     return queue->front == -1;
 }
 
-
+// Function to check if the queue is full
 int isFull(struct Queue *queue)
 {
     return queue->rear == MAX - 1;
 }
 
-
+// Function to enqueue an element
 void enqueue(struct Queue *queue, int value)
 {
     if (isFull(queue))
@@ -49,19 +47,19 @@ void enqueue(struct Queue *queue, int value)
     queue->items[queue->rear] = value;
 }
 
-
+// Function to dequeue an element
 int dequeue(struct Queue *queue)
 {
     if (isEmpty(queue))
     {
         printf("Queue is empty!\n");
-        return -1; 
+        return -1;
     }
     int dequeuedValue = queue->items[queue->front];
-    if (queue->front >= queue->rear)
+
+    if (queue->front == queue->rear)
     {
-        
-        queue->front = queue->rear = -1;
+        queue->front = queue->rear = -1; // Reset the queue
     }
     else
     {
@@ -70,27 +68,37 @@ int dequeue(struct Queue *queue)
     return dequeuedValue;
 }
 
-
+// Function to reverse a queue using another queue
 void reverseQueue(struct Queue *originalQueue)
 {
-    int tempQueue[MAX];
-    int tempIndex = 0;
+    struct Queue *tempQueue = createQueue();
 
-    
     while (!isEmpty(originalQueue))
     {
-        tempQueue[tempIndex++] = dequeue(originalQueue);
+        int frontElement = dequeue(originalQueue);
+
+        // Move elements from tempQueue to maintain reverse order
+        int size = tempQueue->rear - tempQueue->front + 1;
+        enqueue(tempQueue, frontElement);
+
+        for (int i = 0; i < size; i++)
+        {
+            enqueue(tempQueue, dequeue(tempQueue));
+        }
     }
 
-    
-    for (int i = tempIndex - 1; i >= 0; i--)
+    // Copy elements back to originalQueue 
+    while (!isEmpty(tempQueue))
     {
-        enqueue(originalQueue, tempQueue[i]);
+        enqueue(originalQueue, dequeue(tempQueue));
     }
+
+    free(tempQueue);
 }
 
+// Function to print a queue
 void printQueue(struct Queue *queue)
-{ 
+{
     if (isEmpty(queue))
     {
         printf("Queue is empty!\n");
@@ -103,6 +111,7 @@ void printQueue(struct Queue *queue)
     printf("\n");
 }
 
+// Main function to test the reversal
 int main()
 {
     struct Queue *originalQueue = createQueue();
