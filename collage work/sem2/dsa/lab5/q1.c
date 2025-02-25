@@ -78,7 +78,7 @@ void reverseQueue(struct Queue *originalQueue)
         int frontElement = dequeue(originalQueue);
 
         // Move elements from tempQueue to maintain reverse order
-        int size = tempQueue->rear - tempQueue->front + 1;
+        int size = tempQueue->rear - tempQueue->front + 1 ;
         enqueue(tempQueue, frontElement);
 
         for (int i = 0; i < size; i++)
@@ -87,7 +87,7 @@ void reverseQueue(struct Queue *originalQueue)
         }
     }
 
-    // Copy elements back to originalQueue 
+    // Copy elements back to originalQueue
     while (!isEmpty(tempQueue))
     {
         enqueue(originalQueue, dequeue(tempQueue));

@@ -1,7 +1,3 @@
-//Create a system to manage orders in a restaurant using a circular queue.The system
-//should allow customers to place orders,
-//kitchen staff to process orders, and waitstaff to deliver orders to tables, all while efficiently managing the queue of orders with a circular structure.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,6 +10,7 @@ typedef struct
     int orderID;
     char customerName[50];
     char foodItem[50];
+    int isProcessed; // 0 = Not Processed, 1 = Processed
 } Order;
 
 // Circular Queue structure
@@ -55,36 +52,66 @@ void placeOrder(CircularQueue *q)
     Order newOrder;
     printf("Enter Order ID: ");
     scanf("%d", &newOrder.orderID);
+    getchar(); // Consume newline character
     printf("Enter Customer Name: ");
-    scanf(" %[^\n]", newOrder.customerName);
+    gets(newOrder.customerName);
     printf("Enter Food Item: ");
-    scanf(" %[^\n]", newOrder.foodItem);
+    gets(newOrder.foodItem);
+    newOrder.isProcessed = 0; // New orders are unprocessed
 
-    q->rear = (q->rear + 1) % MAX_ORDERS; // Circular increment
+    q->rear = (q->rear + 1) % MAX_ORDERS;
     q->orders[q->rear] = newOrder;
     q->count++;
 
     printf("Order placed successfully!\n");
 }
 
-// Function to process an order (dequeue)
+// Function to process an order
 void processOrder(CircularQueue *q)
 {
     if (isEmpty(q))
     {
-        printf("No pending orders!\n");
+        printf("No pending orders to process!\n");
         return;
     }
 
-    Order processedOrder = q->orders[q->front];
+    if (q->orders[q->front].isProcessed)
+    {
+        printf("The next order is already processed and awaiting delivery.\n");
+        return;
+    }
+
     printf("\nProcessing Order...\n");
     printf("Order ID: %d | Customer: %s | Food: %s\n",
-           processedOrder.orderID, processedOrder.customerName, processedOrder.foodItem);
+           q->orders[q->front].orderID, q->orders[q->front].customerName, q->orders[q->front].foodItem);
 
-    q->front = (q->front + 1) % MAX_ORDERS; // Circular increment
+    q->orders[q->front].isProcessed = 1; // Mark as processed
+    printf("Order Processed! Ready for delivery.\n");
+}
+
+// Function to deliver an order
+void deliverOrder(CircularQueue *q)
+{
+    if (isEmpty(q))
+    {
+        printf("No orders to deliver!\n");
+        return;
+    }
+
+    if (!q->orders[q->front].isProcessed)
+    {
+        printf("The next order has not been processed yet. Process it first!\n");
+        return;
+    }
+
+    Order deliveredOrder = q->orders[q->front];
+    printf("\nDelivering Order...\n");
+    printf("Order ID: %d | Customer: %s | Food: %s\n",
+           deliveredOrder.orderID, deliveredOrder.customerName, deliveredOrder.foodItem);
+
+    q->front = (q->front + 1) % MAX_ORDERS;
     q->count--;
-
-    printf("Order Processed!\n");
+    printf("Order Delivered Successfully!\n");
 }
 
 // Function to display the order queue
@@ -100,9 +127,10 @@ void displayOrders(CircularQueue *q)
     int index = q->front;
     for (int i = 0; i < q->count; i++)
     {
-        printf("Order ID: %d | Customer: %s | Food: %s\n",
-               q->orders[index].orderID, q->orders[index].customerName, q->orders[index].foodItem);
-        index = (index + 1) % MAX_ORDERS; // Circular increment
+        printf("Order ID: %d | Customer: %s | Food: %s | Status: %s\n",
+               q->orders[index].orderID, q->orders[index].customerName, q->orders[index].foodItem,
+               q->orders[index].isProcessed ? "Processed" : "Pending");
+        index = (index + 1) % MAX_ORDERS;
     }
 }
 
@@ -118,8 +146,9 @@ int main()
         printf("\n----- Restaurant Order Management -----\n");
         printf("1. Place Order\n");
         printf("2. Process Order\n");
-        printf("3. View Pending Orders\n");
-        printf("4. Exit\n");
+        printf("3. Deliver Order\n");
+        printf("4. View Pending Orders\n");
+        printf("5. Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
 
@@ -132,9 +161,12 @@ int main()
             processOrder(&orderQueue);
             break;
         case 3:
-            displayOrders(&orderQueue);
+            deliverOrder(&orderQueue);
             break;
         case 4:
+            displayOrders(&orderQueue);
+            break;
+        case 5:
             printf("Exiting system. Have a great day!\n");
             return 0;
         default:
