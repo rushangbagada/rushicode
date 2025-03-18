@@ -1,7 +1,8 @@
 // Write a program to input an n digit number. Now break this number into its individual
-//digits and then store every single digit in a separate node thereby forming a linked list.For
+// digits and then store every single digit in a separate node thereby forming a linked list.For
 //  Example,
-//you entered 235, then there will be 3 nodes in the list containing nodes with value 2, 3, 5.
+// you entered 235, then there will be 3 nodes in the list containing nodes with value 2, 3, 5.
+
 
 #include <stdio.h>
 #include <stdlib.h> 
