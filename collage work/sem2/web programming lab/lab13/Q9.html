@@ -1,0 +1,25 @@
+<!-- Use the eventListener to assign an onclick event to the <button> element.
+    <button id="demo">Click me1</button>
+    <script>
+    document.getElementById(“demo”)______. (“_______”, myFunction);
+    </script> -->
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="demo">Click me</button>
+        <p id="para"></p>
+        <script>
+        document.getElementById("demo").addEventListener("click", myFunction);4
+        function myFunction() {
+            document.getElementById("para").innerHTML = "Hello World!";
+        }
+        </script>
+    </body>
+    </html>

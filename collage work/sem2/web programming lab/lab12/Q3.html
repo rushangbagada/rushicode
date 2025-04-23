@@ -1,0 +1,61 @@
+<!-- Write javascript program to explore String functions like concat(), slice(),
+split() and all others as given in below: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid black;
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        body{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1>enter the string</h1>
+        <input type="text" id="str1" placeholder="Enter first string"><br><br>
+        <input type="text" id="str2" placeholder="Enter second string"><br><br>
+        <button onclick="concatStrings()">Concat</button>
+        <button onclick="sliceString()">Slice</button>
+        <button onclick="splitString()">Split</button>
+        <h2>Result: <span id="result"></span></h2>
+    </div>
+
+        <script>
+            function concatStrings() {
+                var str1 = document.getElementById("str1").value;
+                var str2 = document.getElementById("str2").value;
+                var result = str1.concat(str2);
+                document.getElementById("result").innerHTML = result;
+            }
+
+            function sliceString() {
+                var str1 = document.getElementById("str1").value;
+                var startIndex = parseInt(prompt("Enter start index:"));
+                var endIndex = parseInt(prompt("Enter end index:"));
+                var result = str1.slice(startIndex, endIndex);
+                document.getElementById("result").innerHTML = result;
+            }
+
+            function splitString() {
+                var str1 = document.getElementById("str1").value;
+                var delimiter = prompt("Enter delimiter:");
+                var result = str1.split(delimiter);
+                document.getElementById("result").innerHTML = result.join(", ");
+            }
+
+
+        </script>
+    </div>
+</body>
+</html>

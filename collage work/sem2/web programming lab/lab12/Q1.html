@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date, Day, and Time</title>
+</head>
+<body>
+    <h2>Current Date, Day, and Time</h2>
+    <p id="dateTime"></p>
+
+    <script>
+        function getCurrentDateTime() {
+            let now = new Date();
+            let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            let day = days[now.getDay()];
+            let date = now.toLocaleDateString();
+            let time = now.toLocaleTimeString();
+            
+            document.getElementById("dateTime").innerHTML = `Day: ${day} <br> Date: ${date} <br> Time: ${time}`;
+        }
+
+        getCurrentDateTime();
+    </script>
+</body>
+</html>

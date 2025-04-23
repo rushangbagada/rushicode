@@ -17,5 +17,5 @@ while 1:
     if a==-1 or a=="":
         break
     print(ticket_price(a))
-    a=input("Enter age: ")   
+    a=int(input("Enter age: "))   
     

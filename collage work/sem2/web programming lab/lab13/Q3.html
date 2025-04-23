@@ -1,0 +1,33 @@
+<!-- Display a message in confirmation box, prompt box and alert box using JavaScript -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>JavaScript Confirmation, Prompt, and Alert Boxes</h1>
+    <p>1. Show a confirmation box</p>
+    <p>2. Show a prompt box</p>
+    <p>3. Show an alert box</p>
+    <input type="number" id="choise" placeholder="Enter your choice">
+    <button onclick="box()">Show box</button>
+    
+    <script>
+        function box() {
+            var num = document.getElementById("choise").value; 
+            if (num == 1) {
+                confirm("Hello user, welcome to our website!");
+            } else if (num == 2) {
+                prompt("Hello user, welcome to our website!");
+            } else if (num == 3) {
+                alert("Hello guest, please log in or sign up.");
+            } else {
+                alert("Invalid choice. Please enter 1, 2, or 3.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!-- Create a form and validate the form using JavaScript. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .div1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            height: 100vh;
+        }
+        form {
+            height: 200px;
+            width: 300px;
+            background-color: rgb(123, 91, 143);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10%;
+        }
+        input {
+            padding: 2px;
+            margin: 4px;
+        }
+        button {
+            margin-top: 10px;
+        }
+        h1 {
+            color: beige;
+        }
+    </style>
+</head>
+<body>
+   <div class="div1">
+    <form onsubmit="return validate()">
+        <h1>Login</h1>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+   </div>
+   <script>
+    function validate() {
+        var pass = {
+            "Xyz@gmail.com": "123456",
+            "abc@gmail.com": "1234567890"
+        };
+
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (email in pass) {
+            if (pass[email] === password) {
+                alert("User exists. Login successful!");
+            } else {
+                alert("Password is incorrect.");
+            }
+        } else {
+            alert("Email doesn't exist.");
+        }
+
+        // Prevent form submission
+        return false;
+    }
+   </script>
+</body>
+</html>
